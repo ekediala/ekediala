@@ -25,6 +25,7 @@
         ><i class="fas fa-home"></i
       ></router-link>
       <router-link
+        exact
         exact-active-class="active"
         tag="li"
         title="Leave a message"
@@ -33,8 +34,8 @@
         ><i class="fas fa-comment"></i
       ></router-link>
       <router-link
-        exact
         exact-active-class="active"
+        exact=""
         tag="li"
         title="See what I've built"
         class="text-2xl p-1  md:text-4xl"
@@ -91,10 +92,13 @@ export default {
     'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-nav li:hover,
 nav li.router-link-active,
 nav li.router-link-exact-active {
   border-bottom: 4px solid goldenrod;
+}
+
+nav li:hover {
+  transform: scale(1.1);
 }
 
 nav li {
