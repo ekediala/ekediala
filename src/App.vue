@@ -6,7 +6,7 @@
   >
     <nav
       :class="{ night: nightMode, day: !nightMode }"
-      class="flex justify-around w-full md:h-16 h-12 sticky lg:w-auto lg:max-h-screen lg:h-auto text-green-500 rounded-md md:mb-2 lg:flex-col"
+      class="flex justify-around w-full md:h-16 h-12 lg:w-auto lg:max-h-screen lg:h-auto text-green-500 rounded-md md:mb-2 lg:flex-col"
     >
       <!-- <a
             class="text-2xl p-1 md:text-4xl"
@@ -79,14 +79,21 @@ export default {
     return {
       nightMode: true
     };
+  },
+  created() {
+    let refreshing;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (refreshing) return;
+      refreshing = true;
+      window.location.reload();
+    });
   }
 };
 </script>
 
 <style>
 .app {
-  background-size: cover;
-  background-position: bottom;
+  background-size: contain;
   color: goldenrod;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
     'Lucida Sans Unicode', Geneva, Verdana, sans-serif;

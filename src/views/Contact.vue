@@ -1,8 +1,6 @@
 <template>
-  <main class="h-full w-full lg:ml-64 flex m-auto">
-    <div
-      class="max-w-md flex flex-col justify-center -mt-8 mx-12 lg:m-16 md:m-32"
-    >
+  <main class="h-screen max-h-screen w-full lg:ml-64 flex m-auto">
+    <div class="max-w-md flex flex-col justify-center m-8 lg:m-16 md:m-32">
       <h3
         class="text-blue-200 font-semibold font-serif mb-4 text-3xl md:text-4xl"
       >
