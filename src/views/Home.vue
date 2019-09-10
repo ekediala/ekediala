@@ -1,6 +1,8 @@
 <template>
   <main class="h-full lg:ml-64 md:mx-5 w-full flex m-auto justify-center">
-    <div class="max-w-md flex flex-col justify-center m-10 lg:m-auto md:m-32">
+    <div
+      class="max-w-md flex flex-col justify-center mx-6 -mt-4 lg:m-auto md:m-32"
+    >
       <h1 class="flex font-serif font-bold mb-1 flex-col">
         <span class="text-6xl">Hi,</span><span class="text-5xl">Eke Here</span>
       </h1>
