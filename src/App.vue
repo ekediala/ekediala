@@ -1,29 +1,108 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <main
+    class="w-screen min-w-full flex flex-wrap lg:flex-no-wrap app min-h-screen h-full"
+    :class="{ night: nightMode, day: !nightMode }"
+    id="app"
+  >
+    <nav
+      :class="{ night: nightMode, day: !nightMode }"
+      class="flex justify-around w-full sticky lg:w-auto max-h-screen text-green-500 rounded-md mb-2 lg:flex-col"
+    >
+      <!-- <a
+            class="text-2xl p-1 md:text-4xl"
+            href="#"
+            @click.prevent="nightMode = !nightMode"
+            ><i
+              :class="{ 'fas fa-sun': nightMode, 'fas fa-moon': !nightMode }"
+            ></i
+          ></a> -->
+      <router-link class="text-2xl p-1  md:text-4xl" to="/"
+        ><i class="fas fa-home"></i
+      ></router-link>
+      <router-link
+        title="Leave a message"
+        class="text-2xl p-1  md:text-4xl"
+        to="/contact"
+        ><i class="fas fa-comment"></i
+      ></router-link>
+      <router-link
+        title="See what I've built"
+        class="text-2xl p-1  md:text-4xl"
+        to="/portfolio"
+        ><i class="fas fa-folder"></i
+      ></router-link>
+      <a
+        target="_blank"
+        class="text-2xl p-1  md:text-4xl"
+        href="https://ng.linkedin.com/in/eke-diala-enyinnaya-a0906752"
+        ><i class="fab fa-linkedin"></i
+      ></a>
+      <a
+        target="_blank"
+        class="text-2xl p-1  md:text-4xl"
+        href="https://twitter.com/DialaEke"
+        ><i class="fab fa-twitter"></i
+      ></a>
+      <a
+        target="_blank"
+        class="text-2xl p-1  md:text-4xl"
+        href="https://dev.to/dialaeke"
+        ><i class="fab fa-dev"></i
+      ></a>
+      <a
+        target="_blank"
+        class="text-2xl p-1 md:text-4xl"
+        href="https://github.com/ekediala"
+        ><i class="fab fa-github"></i
+      ></a>
+    </nav>
+    <vue-page-transition name="fade-in-right">
+      <router-view />
+    </vue-page-transition>
+  </main>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script>
+export default {
+  data() {
+    return {
+      nightMode: true
+    };
   }
+};
+</script>
+
+<style>
+.app {
+  background-size: cover;
+  background-position: bottom;
+  color: goldenrod;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.view {
+  background-color: inherit;
+  color: inherit;
+}
+
+.day {
+  background-image: linear-gradient(
+      to left bottom,
+      rgba(20, 4, 158, 0.6),
+      rgba(4, 1, 51, 0.9)
+    ),
+    url('./assets/img/day-bg.jpg');
+  color: darkmagenta;
+}
+
+.night {
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(59, 66, 66, 0.8),
+      rgba(10, 27, 27, 0.8)
+    ),
+    url('./assets/img/bg-img.jpg');
+  color: darkgoldenrod;
 }
 </style>
