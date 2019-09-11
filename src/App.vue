@@ -77,17 +77,10 @@
 export default {
   data() {
     return {
-      nightMode: true
+      nightMode: true,
+      online: false,
     };
   },
-  created() {
-    let refreshing;
-    navigator.serviceWorker.addEventListener('controllerchange', () => {
-      if (refreshing) return;
-      refreshing = true;
-      window.location.reload();
-    });
-  }
 };
 </script>
 
