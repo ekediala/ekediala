@@ -8,13 +8,13 @@
       </h3>
       <transition name="fade">
         <div class="mb-1" role="alert" v-if="sent">
-          <success />
+          <success @hide="hide('success')" />
         </div>
       </transition>
 
       <transition name="fade">
         <div v-if="failed" class="mb-1" role="alert">
-          <error />
+          <error @hide="hide('error')" />
         </div>
       </transition>
       <form class="shadow-md w-auto rounded">
@@ -74,15 +74,22 @@
             errors.first('message')
           }}</small>
         </div>
-        <div class="flex items-center justify-center">
+        <div class="flex items-center justify-between">
           <button
             @click.prevent="send"
             :disabled="sending"
-            :class="{ blinking: sending }"
-            class="bg-blue-500 hover:bg-blue-700 uppercase text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            class="bg-blue-700 hover:bg-blue-900 uppercase text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
+            id="sendButton"
           >
-            {{ sending ? 'Contacting Eke' : 'Contact Eke' }}
+            <span class="text-xl mr-2 uppercase">{{
+              sending ? 'Sending' : 'Send'
+            }}</span>
+            <i
+              v-if="sending"
+              :class="{ spinning: sending }"
+              class="fas fa-comment text-xl"
+            ></i>
           </button>
         </div>
       </form>
@@ -130,29 +137,44 @@ export default {
             this.sent = true;
             setTimeout(() => {
               this.sent = false;
-            }, 15000);
+            }, 20000);
           })
           .catch(() => {
             this.sending = false;
             this.failed = true;
             setTimeout(() => {
               this.failed = false;
-            }, 15000);
+            }, 20000);
           });
       });
+    },
+
+    hide(element) {
+      if (element === 'error') {
+        this.failed = false;
+      } else {
+        this.sent = false;
+      }
     }
   }
 };
 </script>
 
 <style scoped>
-.blinking {
-  animation: blink 1.5s ease infinite;
+input, textarea {
+  color: black;
 }
 
-@keyframes blink {
+#sendButton:disabled {
+  background-color: #2a4365;
+}
+.spinning {
+  animation: spin 1.5s ease infinite;
+}
+
+@keyframes spin {
   0% {
-    transform: scale(0.8);
+    transform: rotate(180deg);
   }
 }
 

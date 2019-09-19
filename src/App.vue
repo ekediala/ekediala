@@ -6,7 +6,7 @@
   >
     <nav
       :class="{ night: nightMode, day: !nightMode }"
-      class="flex justify-around w-full md:h-16 h-12 lg:w-auto lg:max-h-screen lg:h-auto text-green-500 rounded-md md:mb-2 lg:flex-col"
+      class="flex justify-around w-full md:h-16 h-12 lg:w-20 lg:justify-between lg:p-4 lg:max-h-screen lg:h-auto text-green-500 rounded-md md:mb-2 lg:flex-col"
     >
       <!-- <a
             class="text-2xl p-1 md:text-4xl"
@@ -21,9 +21,11 @@
         exact-active-class="active"
         tag="li"
         class="text-2xl p-1  md:text-4xl"
+        title="Visit home page"
         to="/"
         ><i class="fas fa-home"></i
-      ></router-link>
+        ><span class="sr-only">Home</span></router-link
+      >
       <router-link
         exact
         exact-active-class="active"
@@ -32,40 +34,46 @@
         class="text-2xl p-1  md:text-4xl"
         to="/contact"
         ><i class="fas fa-comment"></i
-      ></router-link>
+        ><span class="sr-only">Contact</span></router-link
+      >
       <router-link
         exact-active-class="active"
-        exact=""
+        exact
         tag="li"
         title="See what I've built"
         class="text-2xl p-1  md:text-4xl"
         to="/portfolio"
         ><i class="fas fa-folder"></i
-      ></router-link>
+        ><span class="sr-only">Portfolio</span></router-link
+      >
       <a
         target="_blank"
         class="text-2xl p-1  md:text-4xl"
         href="https://ng.linkedin.com/in/eke-diala-enyinnaya-a0906752"
-        ><i class="fab fa-linkedin"></i
-      ></a>
+        rel="noopener noreferrer"
+        ><i class="fab fa-linkedin"></i><span class="sr-only">LinkedIn</span></a
+      >
       <a
         target="_blank"
+        rel="noopener noreferrer"
         class="text-2xl p-1  md:text-4xl"
         href="https://twitter.com/DialaEke"
-        ><i class="fab fa-twitter"></i
-      ></a>
+        ><i class="fab fa-twitter"></i><span class="sr-only">Twitter</span></a
+      >
       <a
         target="_blank"
+        rel="noopener noreferrer"
         class="text-2xl p-1  md:text-4xl"
         href="https://dev.to/dialaeke"
-        ><i class="fab fa-dev"></i
-      ></a>
+        ><i class="fab fa-dev"></i><span class="sr-only">Dev.to</span></a
+      >
       <a
         target="_blank"
+        rel="noopener noreferrer"
         class="text-2xl p-1 md:text-4xl"
         href="https://github.com/ekediala"
-        ><i class="fab fa-github"></i
-      ></a>
+        ><i class="fab fa-github"></i><span class="sr-only">Github</span></a
+      >
     </nav>
     <vue-page-transition name="fade-in-right">
       <router-view />
@@ -78,9 +86,9 @@ export default {
   data() {
     return {
       nightMode: true,
-      online: false,
+      online: false
     };
-  },
+  }
 };
 </script>
 
@@ -97,8 +105,17 @@ nav li.router-link-exact-active {
   border-bottom: 4px solid goldenrod;
 }
 
-nav li:hover {
+nav li:hover,
+a:hover {
   transform: scale(1.1);
+  transition: all 0.1s ease;
+  box-shadow: 0 0 3pt 2pt darkcyan;
+  /* outline: 4px solid darkcyan;
+  -moz-outline-radius: 10px; */
+  border-bottom: 1px solid transparent;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
 }
 
 nav li {

@@ -1,7 +1,8 @@
 <template>
   <div>
-    <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
-      Error!
+    <div class="bg-red-500 flex text-white justify-between font-bold rounded-t px-4 py-2">
+      Error !
+      <i @click="$emit('hide')" class="fas fa-window-close text-gray-900"></i>
     </div>
     <div
       class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700"
@@ -16,6 +17,6 @@
 
 <script>
 export default {
-  name: 'Error'
+  name: 'Error',
 };
 </script>
