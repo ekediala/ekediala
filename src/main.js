@@ -6,7 +6,9 @@ import '@/assets/css/tailwind.css';
 import VuePageTransition from 'vue-page-transition';
 import VeeValidate from 'vee-validate';
 
-Vue.use(VeeValidate);
+Vue.use(VeeValidate, {
+  events: 'blur|keyup'
+});
 Vue.use(VuePageTransition);
 
 Vue.config.productionTip = false;

@@ -1,13 +1,18 @@
 <template>
-  <main class="h-screen max-h-screen w-full lg:ml-64 flex m-auto">
-    <div class="max-w-md flex flex-col justify-center m-8 lg:m-16 md:m-32">
+  <main
+    class="h-auto max-w-lg flex md:mx-20 lg:mt-8 lg:mx-64 justify-center flex-col w-full"
+  >
+    <div class="flex justify-center">
       <h3
         class="text-blue-200 font-semibold font-serif mb-4 text-3xl md:text-4xl"
       >
         Leave a message.
       </h3>
+    </div>
+
+    <div v-if="info" class="flex px-10 py-4 justify-center">
       <transition name="fade">
-        <div class="mb-1" role="alert" v-if="sent">
+        <div v-if="sent" class="mb-1" role="alert">
           <success @hide="hide('success')" />
         </div>
       </transition>
@@ -17,7 +22,10 @@
           <error @hide="hide('error')" />
         </div>
       </transition>
-      <form class="shadow-md w-auto rounded">
+    </div>
+
+    <div class="flex px-10 justify-center">
+      <form class="shadow-md md:w-screen rounded">
         <div class="mb-4">
           <label class="block text-sm font-bold mb-2" for="name">
             Name
@@ -64,8 +72,8 @@
             type="email"
             placeholder="Let's talk."
             :disabled="sending"
-            cols="3"
-            rows="3"
+            cols="8"
+            rows="5"
             v-model="message"
             name="message"
             v-validate="'required|min:7'"
@@ -106,6 +114,7 @@ export default {
   data() {
     return {
       name: '',
+      info: false,
       email: '',
       message: '',
       sending: false,
@@ -134,7 +143,13 @@ export default {
           .send(service_id, template_id, template_params)
           .then(() => {
             this.sending = false;
+            this.info = true;
             this.sent = true;
+            this.$nextTick().then(() => {
+              this.email = '';
+              this.name = '';
+              this.message = '';
+            });
             setTimeout(() => {
               this.sent = false;
             }, 20000);
@@ -142,14 +157,21 @@ export default {
           .catch(() => {
             this.sending = false;
             this.failed = true;
+            this.info = true;
             setTimeout(() => {
               this.failed = false;
+            }, 20000);
+          })
+          .finally(() => {
+            setTimeout(() => {
+              this.info = false;
             }, 20000);
           });
       });
     },
 
     hide(element) {
+      this.info = false;
       if (element === 'error') {
         this.failed = false;
       } else {
@@ -161,6 +183,23 @@ export default {
 </script>
 
 <style scoped>
+@media screen and (max-width: 480px) {
+  form {
+    width: 20rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  form {
+    width: 17rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  form {
+    width: 15rem;
+  }
+}
 input,
 textarea {
   color: black;
