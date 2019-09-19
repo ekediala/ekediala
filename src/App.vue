@@ -51,6 +51,7 @@
         class="text-2xl p-1  md:text-4xl"
         href="https://ng.linkedin.com/in/eke-diala-enyinnaya-a0906752"
         rel="noopener noreferrer"
+        title="Visit my LinkedIn profile"
         ><i class="fab fa-linkedin"></i><span class="sr-only">LinkedIn</span></a
       >
       <a
@@ -58,6 +59,7 @@
         rel="noopener noreferrer"
         class="text-2xl p-1  md:text-4xl"
         href="https://twitter.com/DialaEke"
+        title="Visit my Twitter handle"
         ><i class="fab fa-twitter"></i><span class="sr-only">Twitter</span></a
       >
       <a
@@ -65,6 +67,7 @@
         rel="noopener noreferrer"
         class="text-2xl p-1  md:text-4xl"
         href="https://dev.to/dialaeke"
+        title="Visit my dev.to page"
         ><i class="fab fa-dev"></i><span class="sr-only">Dev.to</span></a
       >
       <a
