@@ -161,7 +161,8 @@ export default {
 </script>
 
 <style scoped>
-input, textarea {
+input,
+textarea {
   color: black;
 }
 

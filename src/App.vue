@@ -1,6 +1,6 @@
 <template>
   <main
-    class="w-screen min-w-full flex flex-wrap lg:flex-no-wrap app min-h-screen h-full"
+    class="w-screen min-w-screen flex flex-wrap lg:flex-no-wrap app min-h-screen h-full"
     :class="{ night: nightMode, day: !nightMode }"
     id="app"
   >
@@ -105,17 +105,19 @@ nav li.router-link-exact-active {
   border-bottom: 4px solid goldenrod;
 }
 
-nav li:hover,
-a:hover {
-  transform: scale(1.1);
-  transition: all 0.1s ease;
-  box-shadow: 0 0 3pt 2pt darkcyan;
-  /* outline: 4px solid darkcyan;
+@media screen and (min-width: 1024px) {
+  nav li:hover,
+  a:hover {
+    transform: scale(1.1);
+    transition: all 0.1s ease;
+    box-shadow: 0 0 3pt 2pt darkcyan;
+    /* outline: 4px solid darkcyan;
   -moz-outline-radius: 10px; */
-  border-bottom: 1px solid transparent;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
+    border-bottom: 1px solid transparent;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+  }
 }
 
 nav li {
