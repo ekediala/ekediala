@@ -20,7 +20,7 @@
         exact
         exact-active-class="active"
         tag="li"
-        class="text-2xl p-1  md:text-4xl"
+        class="text-2xl p-1 nav-link  md:text-4xl"
         title="Visit home page"
         to="/"
         ><i class="fas fa-home"></i
@@ -31,7 +31,7 @@
         exact-active-class="active"
         tag="li"
         title="Leave a message"
-        class="text-2xl p-1  md:text-4xl"
+        class="text-2xl p-1 nav-link md:text-4xl"
         to="/contact"
         ><i class="fas fa-comment"></i
         ><span class="sr-only">Contact</span></router-link
@@ -41,14 +41,14 @@
         exact
         tag="li"
         title="See what I've built"
-        class="text-2xl p-1  md:text-4xl"
+        class="text-2xl p-1 nav-link md:text-4xl"
         to="/portfolio"
         ><i class="fas fa-folder"></i
         ><span class="sr-only">Portfolio</span></router-link
       >
       <a
         target="_blank"
-        class="text-2xl p-1  md:text-4xl"
+        class="text-2xl p-1 nav-link md:text-4xl"
         href="https://ng.linkedin.com/in/eke-diala-enyinnaya-a0906752"
         rel="noopener noreferrer"
         title="Visit my LinkedIn profile"
@@ -57,7 +57,7 @@
       <a
         target="_blank"
         rel="noopener noreferrer"
-        class="text-2xl p-1  md:text-4xl"
+        class="text-2xl p-1 nav-link md:text-4xl"
         href="https://twitter.com/DialaEke"
         title="Visit my Twitter handle"
         ><i class="fab fa-twitter"></i><span class="sr-only">Twitter</span></a
@@ -65,7 +65,7 @@
       <a
         target="_blank"
         rel="noopener noreferrer"
-        class="text-2xl p-1  md:text-4xl"
+        class="text-2xl p-1 nav-link md:text-4xl"
         href="https://dev.to/dialaeke"
         title="Visit my dev.to page"
         ><i class="fab fa-dev"></i><span class="sr-only">Dev.to</span></a
@@ -73,7 +73,8 @@
       <a
         target="_blank"
         rel="noopener noreferrer"
-        class="text-2xl p-1 md:text-4xl"
+        class="text-2xl p-1nav-link md:text-4xl"
+        title="My github profile"
         href="https://github.com/ekediala"
         ><i class="fab fa-github"></i><span class="sr-only">Github</span></a
       >
@@ -109,8 +110,7 @@ nav li.router-link-exact-active {
 }
 
 @media screen and (min-width: 1024px) {
-  nav li:hover,
-  a:hover {
+  .nav-link:hover {
     transform: scale(1.1);
     transition: all 0.1s ease;
     box-shadow: 0 0 3pt 2pt darkcyan;
