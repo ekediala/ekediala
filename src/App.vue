@@ -73,7 +73,7 @@
       <a
         target="_blank"
         rel="noopener noreferrer"
-        class="text-2xl p-1nav-link md:text-4xl"
+        class="text-2xl p-1 nav-link md:text-4xl"
         title="My github profile"
         href="https://github.com/ekediala"
         ><i class="fab fa-github"></i><span class="sr-only">Github</span></a
@@ -114,8 +114,6 @@ nav li.router-link-exact-active {
     transform: scale(1.1);
     transition: all 0.1s ease;
     box-shadow: 0 0 3pt 2pt darkcyan;
-    /* outline: 4px solid darkcyan;
-  -moz-outline-radius: 10px; */
     border-bottom: 1px solid transparent;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
